@@ -45,7 +45,7 @@ public class Netz {
 		double errorBeforeTraining, error = -1;
 		double[] dE_Out_i_dNet_Out_i = new double[outputNeurons.size()];
 
-		System.out.println("Starting training for " + repetitions + " repetitions...");
+//		System.out.println("Starting training for " + repetitions + " repetitions...");
 		result = compute(input);
 		errorBeforeTraining = error(expectedResult, result);
 
@@ -134,10 +134,10 @@ public class Netz {
 		result = compute(input);
 		error = error(expectedResult, result);
 
-		System.out.println("Error before training: " + errorBeforeTraining);
-		System.out.println("Error after training:  " + error);
-		
-		System.out.println("prediction for " + arrayToString(input) + " is " + arrayToString(result));
+//		System.out.println("Error before training: " + errorBeforeTraining);
+//		System.out.println("Error after training:  " + error);
+//		
+//		System.out.println("prediction for " + arrayToString(input) + " is " + arrayToString(result));
 	}
 
 	private double error(double[] expectation, double[] reality) {
