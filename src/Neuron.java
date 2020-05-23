@@ -1,46 +1,39 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Neuron {
 
-	double[] gewicht = new double[100];
-	double schwellwert;
+	double[] weight;
 	double bias;
-	ArrayList<Neuron> sendToArrayList;
+	ArrayList<Neuron> nextLayer;
 
-	public Neuron(ArrayList<Neuron> sendTo) {
-		sendToArrayList = sendTo;
-	}
-	
-	public void train(double[] input, int result, int steps) {
+	public Neuron(ArrayList<Neuron> nextLayer, int numberOfWeights) {
+		this.nextLayer = nextLayer;
+		weight = new double[numberOfWeights];
 		
-		double alpha = 0.01;
-		
-		for(; steps > 0; steps--) {
-			int step = fire(input);
-			
-			if(step == result) {
-				return;
-			}
-			
-			for(int i = 0; i < gewicht.length; i++) {
-				gewicht[i] = gewicht[i] + alpha * input[i] * (result - step);
-			}
+		// randomize weights
+		for(int i = 0; i < numberOfWeights; i++) {
+			weight[i] = Math.random();
 		}
+		// randomize bias
+		bias = Math.random();
 	}
 
-	public int fire(double[] input) {
+	public double fire(double[] input) {
 
+//		System.out.println("input.length = " + input.length + " | weight.length = " + weight.length);
+		assert input.length == weight.length;
+		
 		double sum = 0;
-		double length = Math.min(input.length, gewicht.length);
+		double length = input.length;
 
 		for (int i = 0; i < length; i++) {
-			sum += gewicht[i] * input[i];
+			sum += weight[i] * input[i];
 		}
 		sum += bias;
 
-		if (schwellwert <= sum) {
-			return 1;
-		}
-		return 0;
+		sum = 1 / (1 + Math.exp(-sum));
+		
+		return sum;
 	}
 }
