@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import NeuronalNetwork.Netz;
+import NeuronalNetwork.Net;
 import NeuronalNetwork.Neuron;
 
 public class DataWriter {
 
-	public static boolean writeNetToFile(String filename, Netz neuralNetwork) {
+	public static boolean writeNetToFile(String filename, Net neuralNetwork) {
 		
 		try {
 			

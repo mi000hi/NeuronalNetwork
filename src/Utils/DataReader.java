@@ -9,12 +9,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import NeuronalNetwork.Netz;
+import NeuronalNetwork.Net;
 import NeuronalNetwork.Neuron;
 
 public class DataReader {
 
-	public static Netz readNetFromFile(String filename) {
+	public static Net readNetFromFile(String filename) {
 		
 		double learnrate = 0;
 		int nrInputNeurons = 0, nrHiddenNeurons = 0, nrOutputNeurons = 0;
@@ -123,7 +123,7 @@ public class DataReader {
 					+ "\nnrOutputNeurons = " + nrOutputNeurons);
 			
 			// create the neural network
-			Netz net = new Netz(inputNeurons, hiddenNeurons, outputNeurons, learnrate);
+			Net net = new Net(inputNeurons, hiddenNeurons, outputNeurons, learnrate);
 			return net;
 		}
 		

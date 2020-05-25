@@ -1,4 +1,4 @@
-import NeuronalNetwork.Netz;
+import NeuronalNetwork.Net;
 import Utils.DataReader;
 import Utils.DataWriter;
 
@@ -8,7 +8,7 @@ public class Main {
 
 		// new net with sensors {food, water, danger, strongerThanDanger} and output
 		// {run}
-		Netz net = new Netz(4, 2, 1, 0.1);
+		Net net = new Net(4, 2, 1, 0.1);
 
 		double[][] trainingInput = new double[][] { { 0, 0, 0, 1 }, { 1, 0, 0, 1 }, { 0, 1, 0, 1 }, { 0, 0, 1, 0 },
 				{ 1, 0, 1, 0 }, { 0, 1, 1, 0 } };
@@ -29,7 +29,7 @@ public class Main {
 		DataWriter.writeNetToFile("net.txt", net);
 		
 		// write new net from file
-		Netz net2 = DataReader.readNetFromFile("net.txt");
+		Net net2 = DataReader.readNetFromFile("net.txt");
 		
 		System.out.println("prediction for {1, 1, 0, 1} from net2 is " + net2.compute(new double[] { 1, 1, 0, 1 })[0] + "\n");
 	}

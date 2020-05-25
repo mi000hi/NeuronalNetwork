@@ -2,7 +2,7 @@ package NeuronalNetwork;
 
 import java.util.ArrayList;
 
-public class Netz {
+public class Net {
 
 	ArrayList<Neuron> inputNeurons = new ArrayList<>();
 	ArrayList<Neuron> hiddenNeurons = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Netz {
 	 * @param output
 	 * @param learnrate
 	 */
-	public Netz(int input, int hidden, int output, double learnrate) {
+	public Net(int input, int hidden, int output, double learnrate) {
 
 		this.learnrate = learnrate;
 
@@ -38,7 +38,7 @@ public class Netz {
 		}
 	}
 	
-	public Netz(ArrayList<Neuron> inputNeurons, ArrayList<Neuron> hiddenNeurons, ArrayList<Neuron> outputNeurons, double learnrate) {
+	public Net(ArrayList<Neuron> inputNeurons, ArrayList<Neuron> hiddenNeurons, ArrayList<Neuron> outputNeurons, double learnrate) {
 
 		this.learnrate = learnrate;
 
