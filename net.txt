@@ -1,0 +1,19 @@
++-----------------------------------------------------------+
+|  this file contains a neural network. do not alter data.  |
+|                last modified on 25.05.2020                |
++-----------------------------------------------------------+
+
+each line contains all weights from one neuron separated by comma.
+the last value represents the bias for that neuron.
+there will be an empty line after all hidden neurons, before the output
+neurons start.
+
+learnrate = 0.1
+# input neurons = 4
+# hidden neurons = 2
+# output neurons = 1
+
+0.18394104308742826,0.37464876327922025,3.744490550278274,-3.5232047468286454,-0.3379522183655136
+0.030899965059956437,0.2182339058096393,-2.6654477211160152,3.306968436094373,-0.3761556581284882
+
+8.18268503586032,-6.101033666116323,-1.0189999535140037
