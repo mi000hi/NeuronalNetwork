@@ -74,6 +74,13 @@ public class Net {
 
 			for (int trainingDataIndex = 0; trainingDataIndex < inputs.length; trainingDataIndex++) {
 
+				// print error
+				if(rep == 0) {
+					double[] result = compute(inputs[trainingDataIndex]);
+					double errorBeforeTraining = error(expectedResults[trainingDataIndex], result);
+					System.out.println("errorBeforeTraining: " + errorBeforeTraining);
+				}
+				
 				backPropagation(inputs[trainingDataIndex], expectedResults[trainingDataIndex]);
 			}
 
