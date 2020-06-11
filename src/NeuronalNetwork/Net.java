@@ -37,8 +37,9 @@ public class Net {
 			this.outputNeurons.add(new Neuron(null, hidden));
 		}
 	}
-	
-	public Net(ArrayList<Neuron> inputNeurons, ArrayList<Neuron> hiddenNeurons, ArrayList<Neuron> outputNeurons, double learnrate) {
+
+	public Net(ArrayList<Neuron> inputNeurons, ArrayList<Neuron> hiddenNeurons, ArrayList<Neuron> outputNeurons,
+			double learnrate) {
 
 		this.learnrate = learnrate;
 
@@ -69,18 +70,16 @@ public class Net {
 //		result = compute(input);
 //		errorBeforeTraining = error(expectedResult, result);
 
+		// print error
+		double[] result = compute(inputs[0]);
+		double errorBeforeTraining = error(expectedResults[0], result);
+		System.out.println("errorBeforeTraining: " + errorBeforeTraining);
+
 //		while(error == -1 || error > 0.0000001) {
 		for (int rep = 0; rep < repetitions; rep++) {
 
 			for (int trainingDataIndex = 0; trainingDataIndex < inputs.length; trainingDataIndex++) {
 
-				// print error
-				if(rep == 0) {
-					double[] result = compute(inputs[trainingDataIndex]);
-					double errorBeforeTraining = error(expectedResults[trainingDataIndex], result);
-					System.out.println("errorBeforeTraining: " + errorBeforeTraining);
-				}
-				
 				backPropagation(inputs[trainingDataIndex], expectedResults[trainingDataIndex]);
 			}
 
@@ -96,6 +95,10 @@ public class Net {
 //		System.out.println("prediction for " + arrayToString(input) + " is " + arrayToString(result));
 
 		}
+
+		// only works for first trainingdatasample
+		result = compute(inputs[0]);
+		System.out.println("errorAfterTraining: " + error(expectedResults[0], result));
 	}
 
 	private void backPropagation(double[] input, double[] expectedResult) {
@@ -231,7 +234,7 @@ public class Net {
 
 		return outputResult;
 	}
-	
+
 	private String arrayToString(double[] array) {
 
 		String result = "{ ";
@@ -243,22 +246,22 @@ public class Net {
 
 		return result;
 	}
-	
+
 	/*
 	 * GETTERS
 	 */
 	public int[] getNumberOfNeurons() {
-		return new int[] {inputNeurons.size(), hiddenNeurons.size(), outputNeurons.size()};
+		return new int[] { inputNeurons.size(), hiddenNeurons.size(), outputNeurons.size() };
 	}
-	
+
 	public ArrayList<Neuron> getHiddenNeurons() {
 		return hiddenNeurons;
 	}
-	
+
 	public ArrayList<Neuron> getOutputNeurons() {
 		return outputNeurons;
 	}
-	
+
 	public double getLearnrate() {
 		return learnrate;
 	}
