@@ -74,7 +74,7 @@ public class Net {
 		double[] result = compute(inputs[0]);
 		double errorBeforeTraining = error(expectedResults[0], result);
 		System.out.println("errorBeforeTraining: " + errorBeforeTraining);
-		System.out.println("predictionBefore: " + result[0] + " should be " + expectedResults[0]);
+		System.out.println("predictionBefore: " + result[0] + " should be " + expectedResults[0][0]);
 
 //		while(error == -1 || error > 0.0000001) {
 		for (int rep = 0; rep < repetitions; rep++) {
@@ -100,7 +100,7 @@ public class Net {
 		// only works for first trainingdatasample
 		result = compute(inputs[0]);
 		System.out.println("errorAfterTraining:  " + error(expectedResults[0], result));
-		System.out.println("predictionAfter:  " + result[0] + " should be " + expectedResults[0]);
+		System.out.println("predictionAfter:  " + result[0] + " should be " + expectedResults[0][0]);
 	}
 
 	private void backPropagation(double[] input, double[] expectedResult) {
